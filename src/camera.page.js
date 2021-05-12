@@ -3,14 +3,21 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Base, View, Text, StyleSheet, Button ,TouchableOpacity, } from 'react-native';
 
-import HomeScr from './src/home.js';
-
-class IApp extends React.Component{
+class CameraPage extends React.Component{
     render(){
         return (
-            <HomeScr />
+            <View>
+                <Text>PLEASE~~eeee~~</Text>
+            </View>
         );
     };
 };
 
-export default IApp;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+
+    },
+});
+export default CameraPage;
