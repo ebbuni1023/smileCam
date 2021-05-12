@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Base, View, Text, StyleSheet, Button ,TouchableOpacity, StatusBar, ImageBackground, } from 'react-native';
+import { Base, View, Text, StyleSheet, Button ,TouchableOpacity, StatusBar, ImageBackground, Alert, } from 'react-native';
 
-import CameraPage from './camera.page';
+import CameraPage from '../src/camera.page';
+import Profile from '../src/profile';
 
 class HomeScr extends React.Component{
     render(){
@@ -15,9 +16,13 @@ class HomeScr extends React.Component{
                     source={require('../assets/images/smile.png')}
                     style={styles.image}
                     />
-
+                    
                     <View style = {styles.welcomeText}>
                     <Text>Hello, Welcome to our Smile App</Text>
+                    </View>
+
+                    <View style = {styles.buttonCamera}>
+                        <Button title="Take picturs" onPress={() => NavigationContainer.navigate('Profile')}></Button>
                     </View>
 
                 </View>
@@ -42,13 +47,18 @@ const styles = StyleSheet.create({
     },
 
     welcomeText:{
-        marginTop: '80%',
         width: '100%',
         alignItems: 'center',
     },
     
     image:{
+        marginTop: '20%',
+        width: '100%',
+        height: '70%',
+    },
 
+    buttonCamera:{
+        
     },
 });
 
