@@ -6,28 +6,51 @@ import { Base, View, Text, StyleSheet, Button ,TouchableOpacity, StatusBar, Imag
 import CameraPage from '../src/camera.page';
 import Profile from '../src/profile';
 
+const Stack = createStackNavigator();
+
 class HomeScr extends React.Component{
     render(){
         return (
             <View style = {styles.container}>
-                <View style = {styles.imgconatiner}>
 
+                {/* This will be advertisements or random images for users */}
+                <View style = {styles.imgconatiner}>
                     <ImageBackground
                     source={require('../assets/images/smile.png')}
                     style={styles.image}
                     />
                     
+                </View>
+
+                {/* Greeting for users <3 */}
+                <View style = {styles.greeting}>
                     <View style = {styles.welcomeText}>
                     <Text>Hello, Welcome to our Smile App</Text>
                     </View>
+                </View>
 
+                {/* Three parts 
+                left => gallery.js, center => camera.page.js, pictures right=> profile.js*/}
+                <View style = {styles.below}>
+
+                    {/* button for gallery -> gallery.js */}
+                    <View style = {styles.gallery}>
+
+                    </View>
+                    {/* button for camera -> camera.page.js */}
                     <View style = {styles.buttonCamera}>
                         <Button title="Take picturs" onPress={() => NavigationContainer.navigate('Profile')}></Button>
+                    </View>
+
+                    {/* button for profile -> profile.js */}
+                    <View style = {styles.profile}>
+
                     </View>
 
                 </View>
 
                 <StatusBar style="auto" />
+
             </View>
         );
     }
