@@ -29,7 +29,7 @@ class CameraPage extends React.Component {
                 </View>
 
                 <View style={styles.welcomeText}>
-                    <Text>Hello, Welcome to our Smile App</Text>
+                    <Text>CameraPage</Text>
                     <Text>HERE WILL BE ANY PARAGRAH</Text>
                 </View>
                 <View style={styles.newsText}>

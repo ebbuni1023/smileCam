@@ -17,8 +17,10 @@ import {
     navigation,
 } from 'react-native';
 
+const Stack = createStackNavigator();
 import CameraPage from './camera.page';
 import LoginScreen from './LoginScreen';
+import GalleryPage from './gallery';
 
 function HomeScr({navigation}) {
     return (
@@ -40,7 +42,7 @@ function HomeScr({navigation}) {
             </View>
 
             <View style={styles.button}>
-                <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
+                <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
                     <FontAwesome
                         name="image"
                         style={{
@@ -51,10 +53,7 @@ function HomeScr({navigation}) {
             </View>
 
             <View style={styles.button}>
-                <TouchableHighlight
-                    onPress={() => {
-                        CameraPage
-                    }}>
+                <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
                     <FontAwesome
                         name="camera"
                         style={{
@@ -64,10 +63,7 @@ function HomeScr({navigation}) {
             </View>
 
             <View style={styles.button}>
-                <TouchableHighlight
-                    onPress={() => {
-                        Camera
-                    }}>
+            <TouchableHighlight onPress={() => navigation.navigate('Profile')}>
                     <FontAwesome
                         name="user"
                         style={{
