@@ -13,7 +13,8 @@ import {
     StatusBar,
     ImageBackground,
     Dimensions,
-    navigation
+    navigation,
+    TouchableHighlight
 } from 'react-native';
 
 const Stack = createStackNavigator();
@@ -41,13 +42,21 @@ class HomeScr extends React.Component {
                 </View>
 
                 <View style={styles.button}>
-                <Button><FontAwesome name="image" style={{ color: 'pink', fontSize: 40 }}/></Button>
+                    <TouchableHighlight onPress={() => {Camera}}>
+                    <FontAwesome name="image" style={{ color: 'pink', fontSize: 40 }}/>
+                    </TouchableHighlight>
                 </View>
+
                 <View style={styles.button}>
-                <FontAwesome name="camera" style={{ color: 'black', fontSize: 50 }}/>
+                    <TouchableHighlight onPress={() => {Camera}}>
+                    <FontAwesome name="camera" style={{ color: 'black', fontSize: 40 }}/>
+                    </TouchableHighlight>
                 </View>
+
                 <View style={styles.button}>
-                <FontAwesome name="user" style={{ color: 'pink', fontSize: 40 }}/>
+                    <TouchableHighlight onPress={() => {Camera}}>
+                    <FontAwesome name="user" style={{ color: 'pink', fontSize: 40 }}/>
+                    </TouchableHighlight>
                 </View>
             </View>
         );
