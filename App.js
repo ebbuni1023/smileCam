@@ -7,9 +7,9 @@ import HomeScr from './src/home';
 import CameraPage from './src/camera.page';
 import { StackRouter } from 'react-navigation';
 
-class IApp extends React.Component{
-  render(){
-    const Stack = createStackNavigator();
+const Stack = createStackNavigator();
+
+function App(){
       return (
           <NavigationContainer>
             <Stack.Navigator>
@@ -18,7 +18,6 @@ class IApp extends React.Component{
             </Stack.Navigator>
           </NavigationContainer>
       );
-  };
 };
 
-export default IApp;
+export default App;

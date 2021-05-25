@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import { FontAwesome, Ionicons,MaterialCommunityIcons } from '@expo/vector-icons';
+import {FontAwesome, Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
 
 import {
     Base,
@@ -10,57 +10,75 @@ import {
     StyleSheet,
     Button,
     TouchableOpacity,
+    TouchableHighlight,
     StatusBar,
     ImageBackground,
     Dimensions,
     navigation,
-    TouchableHighlight
 } from 'react-native';
 
-const Stack = createStackNavigator();
 import CameraPage from './camera.page';
 import LoginScreen from './LoginScreen';
 
-class HomeScr extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <StatusBar style="auto"/>
-                <View style={styles.imgconatiner}>
-                    <ImageBackground
-                        source={require('../assets/images/smile.png')}
-                        style={styles.image}/>
-                </View>
-
-                <View style={styles.welcomeText}>
-                    <Text>Hello, Welcome to our Smile App</Text>
-                    <Text>HERE WILL BE ANY PARAGRAH</Text>
-                </View>
-                <View style={styles.newsText}>
-                    <Text>Hello, Welcome to our Smile App</Text>
-                    <Text>HERE WILL BE ANY PARAGRAH</Text>
-                </View>
-
-                <View style={styles.button}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
-                    <FontAwesome name="image" style={{ color: 'pink', fontSize: 30 }}/>
-                    </TouchableHighlight>
-                </View>
-
-                <View style={styles.button}>
-                    <TouchableHighlight onPress={() => {CameraPage}}>
-                    <FontAwesome name="camera" style={{fontSize: 40 }}/>
-                    </TouchableHighlight>
-                </View>
-
-                <View style={styles.button}>
-                    <TouchableHighlight onPress={() => {Camera}}>
-                    <FontAwesome name="user" style={{ color: 'pink', fontSize: 30 }}/>
-                    </TouchableHighlight>
-                </View>
+function HomeScr({navigation}) {
+    return (
+        <View style={styles.container}>
+            <StatusBar style="auto"/>
+            <View style={styles.imgconatiner}>
+                <ImageBackground
+                    source={require('../assets/images/smile.png')}
+                    style={styles.image}/>
             </View>
-        );
-    }
+
+            <View style={styles.welcomeText}>
+                <Text>Hello, Welcome to our Smile App</Text>
+                <Text>HERE WILL BE ANY PARAGRAH</Text>
+            </View>
+            <View style={styles.newsText}>
+                <Text>Hello, Welcome to our Smile App</Text>
+                <Text>HERE WILL BE ANY PARAGRAH</Text>
+            </View>
+
+            <View style={styles.button}>
+                <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
+                    <FontAwesome
+                        name="image"
+                        style={{
+                            color: 'pink',
+                            fontSize: 30
+                        }}/>
+                </TouchableHighlight>
+            </View>
+
+            <View style={styles.button}>
+                <TouchableHighlight
+                    onPress={() => {
+                        CameraPage
+                    }}>
+                    <FontAwesome
+                        name="camera"
+                        style={{
+                            fontSize: 40
+                        }}/>
+                </TouchableHighlight>
+            </View>
+
+            <View style={styles.button}>
+                <TouchableHighlight
+                    onPress={() => {
+                        Camera
+                    }}>
+                    <FontAwesome
+                        name="user"
+                        style={{
+                            color: 'pink',
+                            fontSize: 30
+                        }}/>
+                </TouchableHighlight>
+            </View>
+        </View>
+    );
+
 }
 
 const {height, width} = Dimensions.get('window');
@@ -71,7 +89,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         backgroundColor: 'white',
         justifyContent: 'center',
-        flexWrap: 'wrap',
+        flexWrap: 'wrap'
     },
 
     imgconatiner: {
@@ -79,7 +97,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        height: '60%',
+        height: '60%'
     },
 
     image: {
@@ -92,25 +110,25 @@ const styles = StyleSheet.create({
         height: '10%',
         width: '100%',
         alignItems: 'center',
-        backgroundColor: 'pink',
+        backgroundColor: 'pink'
     },
-    newsText:{
+    newsText: {
         paddingTop: 10,
         height: '10%',
         width: '100%',
         alignItems: 'center',
-        backgroundColor: 'pink',
-        },
+        backgroundColor: 'pink'
+    },
 
-    button:{
-        flex:1,
+    button: {
+        flex: 1,
         marginTop: 25,
         flexDirection: 'row',
         textAlign: 'center',
         justifyContent: 'center',
         height: '20%',
         backgroundColor: 'white',
-        padding: 20,
+        padding: 20
     }
 });
 
