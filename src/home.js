@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import { FontAwesome, Ionicons,MaterialCommunityIcons } from '@expo/vector-icons';
+
 import {
     Base,
     View,
@@ -11,62 +13,96 @@ import {
     StatusBar,
     ImageBackground,
     Dimensions,
+    navigation
 } from 'react-native';
 
+const Stack = createStackNavigator();
 import CameraPage from './camera.page';
+import LoginScreen from './LoginScreen';
 
-class HomeScr extends React.Component{
-    render(){
+class HomeScr extends React.Component {
+    render() {
         return (
-            <View style = {styles.container}>
-                <View style = {styles.imgconatiner}>
-
+            <View style={styles.container}>
+                {/* <StatusBar style="auto"/> */}
+                <View style={styles.imgconatiner}>
                     <ImageBackground
-                    source={require('../assets/images/smile.png')}
-                    style={styles.image}
-                    />
-
-                    <View style = {styles.welcomeText}>
-                        <Text>Hello, Welcome to our Smile App</Text>
-                    </View>
-
+                        source={require('../assets/images/smile.png')}
+                        style={styles.image}/>
                 </View>
 
-                {/*<StatusBar style="auto" />*/}
+                <View style={styles.welcomeText}>
+                    <Text>Hello, Welcome to our Smile App</Text>
+                    <Text>HERE WILL BE ANY PARAGRAH</Text>
+                </View>
+                <View style={styles.newsText}>
+                    <Text>Hello, Welcome to our Smile App</Text>
+                    <Text>HERE WILL BE ANY PARAGRAH</Text>
+                </View>
+
+                <View style={styles.button}>
+                <Button><FontAwesome name="image" style={{ color: 'pink', fontSize: 40 }}/></Button>
+                </View>
+                <View style={styles.button}>
+                <FontAwesome name="camera" style={{ color: 'black', fontSize: 50 }}/>
+                </View>
+                <View style={styles.button}>
+                <FontAwesome name="user" style={{ color: 'pink', fontSize: 40 }}/>
+                </View>
             </View>
         );
     }
 }
 
-const { height, width } = Dimensions.get('window');
+const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({
-    container:{
+    container: {
+        width: '100%',
+        height: '100%',
         flexDirection: "row",
         backgroundColor: 'white',
         justifyContent: 'center',
+        flexWrap: 'wrap',
     },
 
-    imgconatiner:{
+    imgconatiner: {
         flexDirection: "column",
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        height: '100%',
+        height: '60%',
     },
 
-    image:{
-        marginTop: height * 0.1,
-        width: width * 0.8,
-        height: height * 0.5,
+    image: {
+        width: width * 1,
+        height: height * 0.5
     },
 
-    welcomeText:{
+    welcomeText: {
         paddingTop: 10,
-        height: height * 0.5,
+        height: '10%',
         width: '100%',
         alignItems: 'center',
+        backgroundColor: 'pink',
     },
+    newsText:{
+        paddingTop: 10,
+        height: '10%',
+        width: '100%',
+        alignItems: 'center',
+        backgroundColor: 'pink',
+        },
 
+    button:{
+        flex:1,
+        marginTop: 25,
+        flexDirection: 'row',
+        textAlign: 'center',
+        justifyContent: 'center',
+        height: '20%',
+        backgroundColor: 'white',
+        padding: 20,
+    }
 });
 
 export default HomeScr;
