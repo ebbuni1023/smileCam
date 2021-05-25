@@ -25,7 +25,7 @@ class HomeScr extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                {/* <StatusBar style="auto"/> */}
+                <StatusBar style="auto"/>
                 <View style={styles.imgconatiner}>
                     <ImageBackground
                         source={require('../assets/images/smile.png')}
@@ -42,20 +42,20 @@ class HomeScr extends React.Component {
                 </View>
 
                 <View style={styles.button}>
-                    <TouchableHighlight onPress={() => {Camera}}>
-                    <FontAwesome name="image" style={{ color: 'pink', fontSize: 40 }}/>
+                    <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
+                    <FontAwesome name="image" style={{ color: 'pink', fontSize: 30 }}/>
+                    </TouchableHighlight>
+                </View>
+
+                <View style={styles.button}>
+                    <TouchableHighlight onPress={() => {CameraPage}}>
+                    <FontAwesome name="camera" style={{fontSize: 40 }}/>
                     </TouchableHighlight>
                 </View>
 
                 <View style={styles.button}>
                     <TouchableHighlight onPress={() => {Camera}}>
-                    <FontAwesome name="camera" style={{ color: 'black', fontSize: 40 }}/>
-                    </TouchableHighlight>
-                </View>
-
-                <View style={styles.button}>
-                    <TouchableHighlight onPress={() => {Camera}}>
-                    <FontAwesome name="user" style={{ color: 'pink', fontSize: 40 }}/>
+                    <FontAwesome name="user" style={{ color: 'pink', fontSize: 30 }}/>
                     </TouchableHighlight>
                 </View>
             </View>
