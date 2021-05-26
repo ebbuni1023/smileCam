@@ -21,11 +21,34 @@ const Stack = createStackNavigator();
 import CameraPage from './camera.page';
 import LoginScreen from './LoginScreen';
 import GalleryPage from './gallery';
+import { abs } from 'react-native-reanimated';
 
 function HomeScr({navigation}) {
     return (
         <View style={styles.container}>
             <StatusBar style="auto"/>
+            <View style = {styles.top_container}>
+                <View style={styles.top_button}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                        <FontAwesome
+                            name="image"
+                            style={{
+                                color: 'pink',
+                                fontSize: 20
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+
+                <View style={styles.top_button}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
+                        <FontAwesome
+                            name="camera"
+                            style={{
+                                fontSize: 20
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+            </View>
             <View style={styles.imgconatiner}>
                 <ImageBackground
                     source={require('../assets/images/smile.png')}
@@ -63,7 +86,7 @@ function HomeScr({navigation}) {
                     <FontAwesome
                         name="camera"
                         style={{
-                            fontSize: 40
+                            fontSize: 30
                         }}/>
                 </TouchableHighlight>
             </View>
@@ -79,6 +102,27 @@ function HomeScr({navigation}) {
                 </TouchableHighlight>
             </View>
 
+            <View style={styles.button}>
+                <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                    <FontAwesome
+                        name="image"
+                        style={{
+                            color: 'pink',
+                            fontSize: 30
+                        }}/>
+                </TouchableHighlight>
+            </View>
+
+            <View style={styles.button}>
+                <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                    <FontAwesome
+                        name="image"
+                        style={{
+                            color: 'pink',
+                            fontSize: 30
+                        }}/>
+                </TouchableHighlight>
+            </View>
         </View>
     );
 
@@ -141,6 +185,21 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
         height: '15%'
+    },
+
+    top_container:{
+        width: '100%',
+        height: '10%',
+        backgroundColor: 'yellow',
+    },
+
+    top_button:{
+        flexDirection: 'row',
+        height: '20%',
+        backgroundColor: 'yellow',
+        alignItems: "flex-end",
+        padding: 10,
+        display: "flex",
     },
 
     button: {
