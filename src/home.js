@@ -14,7 +14,7 @@ import {
     StatusBar,
     ImageBackground,
     Dimensions,
-    navigation,
+    navigation
 } from 'react-native';
 
 const Stack = createStackNavigator();
@@ -34,11 +34,17 @@ function HomeScr({navigation}) {
 
             <View style={styles.welcomeText}>
                 <Text>Hello, Welcome to our Smile App</Text>
-                <Text>HERE WILL BE ANY PARAGRAH</Text>
+                <Text>Introduction</Text>
             </View>
-            <View style={styles.newsText}>
-                <Text>Hello, Welcome to our Smile App</Text>
-                <Text>HERE WILL BE ANY PARAGRAH</Text>
+
+            <View style={styles.newsText1}>
+                <Text>News1</Text>
+            </View>
+            <View style={styles.newsText2}>
+                <Text>News2</Text>
+            </View>
+            <View style={styles.newsText3}>
+                <Text>News3</Text>
             </View>
 
             <View style={styles.button}>
@@ -63,7 +69,7 @@ function HomeScr({navigation}) {
             </View>
 
             <View style={styles.button}>
-            <TouchableHighlight onPress={() => navigation.navigate('Profile')}>
+                <TouchableHighlight onPress={() => navigation.navigate('Profile')}>
                     <FontAwesome
                         name="user"
                         style={{
@@ -72,6 +78,7 @@ function HomeScr({navigation}) {
                         }}/>
                 </TouchableHighlight>
             </View>
+
         </View>
     );
 
@@ -97,6 +104,7 @@ const styles = StyleSheet.create({
     },
 
     image: {
+
         width: width * 1,
         height: height * 0.5
     },
@@ -108,22 +116,40 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'pink'
     },
-    newsText: {
-        paddingTop: 10,
-        height: '10%',
-        width: '100%',
-        alignItems: 'center',
-        backgroundColor: 'pink'
+
+    newsText1: {
+        width: '30%',
+        flexDirection: 'row',
+        textAlign: 'center',
+        justifyContent: 'center',
+        height: '15%',
+        marginRight: 10
+    },
+
+    newsText2: {
+        width: '30%',
+        flexDirection: 'row',
+        textAlign: 'center',
+        justifyContent: 'center',
+        height: '15%',
+        marginRight: 10
+    },
+
+    newsText3: {
+        width: '30%',
+        flexDirection: 'row',
+        textAlign: 'center',
+        justifyContent: 'center',
+        height: '15%'
     },
 
     button: {
         flex: 1,
-        marginTop: 25,
         flexDirection: 'row',
         textAlign: 'center',
         justifyContent: 'center',
         height: '20%',
-        backgroundColor: 'white',
+        backgroundColor: 'yellow',
         padding: 20
     }
 });

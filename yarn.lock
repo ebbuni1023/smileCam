@@ -3126,7 +3126,7 @@ expo-av@^9.1.2:
     nullthrows "^1.1.0"
     unimodules-permissions-interface "~6.1.0"
 
-expo-camera@~11.0.2:
+expo-camera@^11.0.3:
   version "11.0.3"
   resolved "https://registry.yarnpkg.com/expo-camera/-/expo-camera-11.0.3.tgz#36b3e8b82f9f7944a9518042df276dfb9c769887"
   integrity sha512-LDVW76spXtSuq4qb0y7+4zhNQUCZAHV+bxiiXgyFzNf1Tb9I1qqwdUyOZj4951xhOUxdH2AzNMhzWQMSthY/mg==
