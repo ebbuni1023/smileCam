@@ -16,7 +16,6 @@
     "expo-av": "^9.1.2",
     "expo-camera": "^11.0.3",
     "expo-media-library": "^12.0.2",
-
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -25,12 +24,14 @@
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.3.0",
+    "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.4",
     "react-router": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@types/react-native-vector-icons": "^6.4.6",
     "eslint-import-resolver-babel-module": "^5.1.0"
   },
   "private": true

@@ -17,7 +17,7 @@ import {
 const Stack = createStackNavigator();
 import LoginScreen from './LoginScreen';
 
-class Profile extends React.Component {
+class LogoutScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Profile;
+export default LogoutScreen;

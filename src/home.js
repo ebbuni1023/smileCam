@@ -2,7 +2,9 @@ import * as React from 'react';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {FontAwesome, Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
+// FontAwesom Icon
+// https://fontawesome.com/v5.15/icons?d=gallery&p=2&q=chat
 import {
     Base,
     View,
@@ -21,6 +23,11 @@ const Stack = createStackNavigator();
 import CameraPage from './camera.page';
 import LoginScreen from './LoginScreen';
 import GalleryPage from './gallery';
+import Setting from './setting';
+import Profile from './profile';
+
+
+
 import { abs } from 'react-native-reanimated';
 
 function HomeScr({navigation}) {
@@ -29,9 +36,9 @@ function HomeScr({navigation}) {
             <StatusBar style="auto"/>
             <View style = {styles.top_container}>
                 <View style={styles.top_button}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
-                        <FontAwesome
-                            name="image"
+                    <TouchableHighlight onPress={() => navigation.navigate('Chat')}>
+                        <Icon
+                            name="comment"
                             style={{
                                 color: 'pink',
                                 fontSize: 20
@@ -40,9 +47,9 @@ function HomeScr({navigation}) {
                 </View>
 
                 <View style={styles.top_button}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Setting')}>
                         <FontAwesome
-                            name="camera"
+                            name="cog"
                             style={{
                                 fontSize: 20
                             }}/>
@@ -114,9 +121,9 @@ function HomeScr({navigation}) {
             </View>
 
             <View style={styles.button}>
-                <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                <TouchableHighlight onPress={() => navigation.navigate('Profile')}>
                     <FontAwesome
-                        name="image"
+                        name="user"
                         style={{
                             color: 'pink',
                             fontSize: 30
