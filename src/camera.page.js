@@ -1,96 +1,78 @@
-import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {
-    Base,
-    View,
-    Text,
-    StyleSheet,
-    Button,
-    TouchableOpacity,
-    StatusBar,
-    ImageBackground,
-    Dimensions,
-    navigation
-} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
+import { Camera } from 'expo-camera';
+import * as MediaLibrary from 'expo-media-library';
 
-const Stack = createStackNavigator();
-import LoginScreen from './LoginScreen';
+import imagePreview from './image.preview';
+import styles from './styles';
 
-class CameraPage extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                {/* <StatusBar style="auto"/> */}
-                <View style={styles.imgconatiner}>
-                    <ImageBackground
-                        source={require('../assets/images/smile.png')}
-                        style={styles.image}/>
-                </View>
+let camera= Camera;
 
-                <View style={styles.welcomeText}>
-                    <Text>CameraPage</Text>
-                    <Text>HERE WILL BE ANY PARAGRAH</Text>
-                </View>
-                <View style={styles.newsText}>
-                    <Text>Hello, Welcome to our Smile App</Text>
-                    <Text>HERE WILL BE ANY PARAGRAH</Text>
-                </View>
+export default function CameraPage({ navigation }) {
+  const [hasPermission, setHasPermission] = useState(null);
+  const [type, setType] = useState(Camera.Constants.Type.back);
+  
+  const _takePicture = async() => {
+    if (!camera) return
+    const photo = await camera.takePictureAsync()
+    console.log(photo)
+    const asset = await MediaLibrary.createAssetAsync(photo['uri']);
+    console.log('asset', asset);
+    MediaLibrary.createAlbumAsync('Expo', asset)
+    navigation.navigate('ImagePre')
+  }
 
-                <View style={styles.button1}>
-                    <Button title="click me" onPress={() => navigation.navigate('CameraPage')}/>
-                </View>
-            </View>
-        );
-    }
+  useEffect(() => {
+    (async () => {
+      const { status } = await Camera.requestPermissionsAsync();
+      setHasPermission(status === 'granted');
+    })();
+  },[]);
+  useEffect(() => {
+    (async () => {
+      const { status } = await MediaLibrary.requestPermissionsAsync();
+      setHasPermission(status === 'granted');
+    })();
+  },[]);
+ 
+  if (hasPermission === null) {
+    return <View />;
+  }
+  if (hasPermission === false) {
+    return <Text>No access to camera</Text>;
+  }
+
+  return (
+    <View style={styles.container}>
+      <Camera style={styles.camera, {flex:3}} type={type}
+      ref={(r) => {camera=r}}
+      >
+      </Camera>
+
+      <View style={styles.buttonContainer, {flex:1}}>
+      <View style={{flex:1}}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              setType(
+                type === Camera.Constants.Type.back
+                  ? Camera.Constants.Type.front
+                  : Camera.Constants.Type.back
+              );
+            }}>
+            <Text style={styles.text}> Flip </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{flex:1}}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={_takePicture}
+            >
+              <Text>Capture</Text>
+            </TouchableOpacity>
+        </View>
+      </View>
+    </View>
+  );
 }
 
-const {height, width} = Dimensions.get('window');
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: '100%',
-        flexDirection: "row",
-        backgroundColor: 'white',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-    },
-
-    imgconatiner: {
-        flexDirection: "column",
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        height: '60%',
-    },
-
-    image: {
-        width: width * 1,
-        height: height * 0.5
-    },
-
-    welcomeText: {
-        paddingTop: 10,
-        height: '10%',
-        width: '100%',
-        alignItems: 'center',
-        backgroundColor: 'pink',
-    },
-    newsText:{
-        paddingTop: 10,
-        height: '10%',
-        width: '100%',
-        alignItems: 'center',
-        backgroundColor: 'pink',
-        },
-
-    button1:{
-        marginTop: 50,
-        flexDirection: 'column',
-        width: '100%',
-        height: '20%',
-        backgroundColor: 'white',
-    }
-});
-
-export default CameraPage;
