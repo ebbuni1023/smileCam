@@ -10,6 +10,8 @@ import CameraPage from './src/camera.page';
 import GalleryPage from './src/gallery';
 import ProfilePage from './src/profile';
 import ImagePreview from './src/image.preview';
+import LoginScreen from './src/LoginScreen';
+import LogoutScreen from './src/LogoutScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +24,8 @@ function App(){
               <Stack.Screen name ="Gallery" component={GalleryPage} />
               <Stack.Screen name ="Profile" component={ProfilePage}/>
               <Stack.Screen name ="ImagePre" component={ImagePreview}/>
+              <Stack.Screen name ="Login" component={LoginScreen}/>
+              <Stack.Screen name ="Logout" component={LogoutScreen}/>
             </Stack.Navigator>
           </NavigationContainer>
       );
