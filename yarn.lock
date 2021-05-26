@@ -3126,7 +3126,7 @@ expo-av@^9.1.2:
     nullthrows "^1.1.0"
     unimodules-permissions-interface "~6.1.0"
 
-expo-camera@~11.0.2:
+expo-camera@^11.0.3:
   version "11.0.3"
   resolved "https://registry.yarnpkg.com/expo-camera/-/expo-camera-11.0.3.tgz#36b3e8b82f9f7944a9518042df276dfb9c769887"
   integrity sha512-LDVW76spXtSuq4qb0y7+4zhNQUCZAHV+bxiiXgyFzNf1Tb9I1qqwdUyOZj4951xhOUxdH2AzNMhzWQMSthY/mg==
@@ -3168,6 +3168,14 @@ expo-keep-awake@~9.1.2:
   version "9.1.2"
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-9.1.2.tgz#b3e52c7bef0ade975ae88637a2bf980f6b573368"
   integrity sha512-CCuEOQUNLYtMA0rt0sQ9u5LlIMH7lDJG7dImoorfKMsP95yHXy8dl3oCdtaz2zbsPgggVYeom9gE+gQu+Ki4rQ==
+
+expo-media-library@^12.0.2:
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/expo-media-library/-/expo-media-library-12.0.2.tgz#6dd047c57fb3187b25a31086c32690e1c63cb1be"
+  integrity sha512-0gi4ny4IldYg3uWHjwP+P04VRe5Ea9BYflRILpQWBzcivppzEzTSYFQKUTQEXuZsWB9PA5uTQd2UaB+4q/dcJQ==
+  dependencies:
+    "@expo/config-plugins" "^1.0.18"
+    unimodules-permissions-interface "~6.1.0"
 
 expo-status-bar@~1.0.4:
   version "1.0.4"
