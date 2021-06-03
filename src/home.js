@@ -25,6 +25,7 @@ import LoginScreen from './LoginScreen';
 import GalleryPage from './gallery';
 import Setting from './setting';
 import Profile from './profile';
+import Header from './Header';
 
 
 
@@ -34,101 +35,96 @@ function HomeScr({navigation}) {
     return (
         <View style={styles.container}>
             <StatusBar style="auto"/>
-          <View style = {styles.top_container}>
-                <View style={styles.top_button}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Setting')}>
+            {/* TOP CONTAINER */}
+            < Header/>
+
+            {/* IMAGE CONTAINER */}
+            <View style={styles.imgconatiner}>
+                <ImageBackground
+                    // 1. Need to change image 
+                    source={require('../assets/images/smile.png')} 
+                    style={styles.image}/>
+            </View>
+ 
+            {/* TEXT CONTAINER */}
+            <View style={styles.welcomeText}>
+                {/* 2. Need to change indtroduction */}
+                <Text>Hello, Welcome to our Smile App</Text>
+                <Text>Introduction</Text>
+            </View>
+            
+
+            {/* NEWS CONTAINER */}
+
+            <View style={styles.news}>
+                <View style={styles.newsText1}>
+                    <Text>News1</Text>
+                </View>
+                <View style={styles.newsText2}>
+                    <Text>News2</Text>
+                </View>
+                <View style={styles.newsText3}>
+                    <Text>News3</Text>
+                </View>
+            </View>
+            
+            {/* BOTTOM CONTAINER */}
+
+            <View style={styles.bottom}>
+                <View style={styles.b1}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Home')}>
                         <FontAwesome
-                            name="bars"
+                            name="home"
                             style={{
-                                color: 'pink',
-                                fontSize: 20
+                                color: 'black',
+                                fontSize: 30
                             }}/>
                     </TouchableHighlight>
                 </View>
- 
-                <View style={styles.top_button, styles.button1}>
+    
+                <View style={styles.b2}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
+                        <FontAwesome
+                            name="paw"
+                            style={{
+                                fontSize: 30,
+                                color: 'black',
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+    
+                <View style={styles.b3}>
                     <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
                         <FontAwesome
                             name="camera"
                             style={{
-                                fontSize: 20
+                                color: 'black',
+                                fontSize: 30
                             }}/>
                     </TouchableHighlight>
                 </View>
-            </View> 
-            <View style={styles.imgconatiner}>
-                <ImageBackground
-                    source={require('../assets/images/smile.png')}
-                    style={styles.image}/>
-            </View>
- 
-            <View style={styles.welcomeText}>
-                <Text>Hello, Welcome to our Smile App</Text>
-                <Text>Introduction</Text>
-            </View>
- 
-            <View style={styles.newsText1}>
-                <Text>News1</Text>
-            </View>
-            <View style={styles.newsText2}>
-                <Text>News2</Text>
-            </View>
-            <View style={styles.newsText3}>
-                <Text>News3</Text>
-            </View>
- 
-            <View style={styles.button}>
-                <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
-                    <FontAwesome
-                        name="image"
-                        style={{
-                            color: 'pink',
-                            fontSize: 30
-                        }}/>
-                </TouchableHighlight>
-            </View>
- 
-            <View style={styles.button}>
-                <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
-                    <FontAwesome
-                        name="camera"
-                        style={{
-                            fontSize: 30
-                        }}/>
-                </TouchableHighlight>
-            </View>
- 
-            <View style={styles.button}>
-                <TouchableHighlight onPress={() => navigation.navigate('Profile')}>
-                    <FontAwesome
-                        name="user"
-                        style={{
-                            color: 'pink',
-                            fontSize: 30
-                        }}/>
-                </TouchableHighlight>
-            </View>
- 
-            <View style={styles.button}>
-                <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
-                    <FontAwesome
-                        name="image"
-                        style={{
-                            color: 'pink',
-                            fontSize: 30
-                        }}/>
-                </TouchableHighlight>
-            </View>
- 
-            <View style={styles.button}>
-                <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
-                    <FontAwesome
-                        name="image"
-                        style={{
-                            color: 'pink',
-                            fontSize: 30
-                        }}/>
-                </TouchableHighlight>
+    
+                <View style={styles.b4}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                        <FontAwesome
+                            name="street-view"
+                            style={{
+                                color: 'black',
+                                fontSize: 30
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+    
+                <View style={styles.b5}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                        <FontAwesome
+                            name="user"
+                            style={{
+                                color: 'black',
+                                fontSize: 30
+                            }}/>
+                    </TouchableHighlight>
+                </View>
             </View>
         </View>
     );
@@ -138,92 +134,87 @@ function HomeScr({navigation}) {
 const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({
     container: {
-        width: '100%',
-        height: '102%',
-        flexDirection: "row",
         backgroundColor: 'white',
-        justifyContent: 'center',
-        flexWrap: 'wrap'
+        flex: 1,
     },
-    button1: {
-      alignSelf: 'flex-end',
-      marginTop: 10,
-      marginRight: 10,
-      
-    },
-    imgconatiner: {
-        flexDirection: "column",
-        alignItems: 'center',
-        justifyContent: 'center',
+
+    // TOP CONTAINER
+    top_container:{
         width: '100%',
-        height: '60%'
+        height: '5%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        height: '7%'
     },
- 
+
+    top_button1:{
+        justifyContent: 'center',
+        paddingEnd: 15,
+        paddingStart: 15,
+    },
+
+    top_button2:{
+        justifyContent: 'center',
+        paddingEnd: 15,
+        paddingStart: 15,
+    },
+
+
+    // IMAGE CONTAINER
+    imgconatiner: {
+        flex:3,
+        justifyContent: "center"
+    },
+
     image: {
- 
         width: width * 1,
         height: height * 0.5
     },
- 
+
+
+    // TEXT CONTAINER
     welcomeText: {
-        paddingTop: 10,
+        flexDirection: "column",
+        justifyContent: 'center',
         height: '10%',
         width: '100%',
         alignItems: 'center',
         backgroundColor: 'pink'
     },
  
+    // NEWS CONTAINER
+    news:{
+        flexDirection: "row",
+        backgroundColor: "red",
+        alignItems: 'center',
+        flex: 1,
+    },
+
     newsText1: {
-        width: '30%',
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'center',
-        height: '15%',
-        marginRight: 10
+        flex: 1,
+        alignItems: 'center',
     },
  
     newsText2: {
-        width: '30%',
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'center',
-        height: '15%',
-        marginRight: 10
+        flex: 1,
+        alignItems: 'center',
     },
  
     newsText3: {
-        width: '30%',
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'center',
-        height: '15%'
+        flex: 1,
+        alignItems: 'center',
     },
- 
-    top_container:{
-        width: '100%',
-        height: '5%',
-        backgroundColor: 'yellow',
+
+    // BOTTOM CONTAINER
+    bottom:{
+        flexDirection:"row",
+        height: '10%',
+        justifyContent: 'space-between',
+        paddingEnd: 20,
+        paddingStart: 20,
+        alignItems:'center',
     },
- 
-    top_button:{
-        width: '100%',
-        position: 'absolute',
-        backgroundColor: 'yellow', 
-        padding: 10,
-    },
- 
-    button: {
-    flex:1,
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'center',
-        height: '50%',
-        backgroundColor: 'yellow',
-        alignContent: 'center',
-        padding: 20,
-        marginBottom: 30,
-        position: 'relative'
-    }
+
 });
 
 export default HomeScr;
