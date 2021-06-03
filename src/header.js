@@ -21,7 +21,6 @@ import {
 
 const Header = () => {
     return (
-        <View style = {styles.container}>
             <View style = {styles.top_container}>
                 <View style={styles.top_button1}>
                     <TouchableHighlight onPress={() => navigation.navigate('Setting')}>
@@ -45,26 +44,20 @@ const Header = () => {
                     </TouchableHighlight>
                 </View>
             </View>             
-        </View>
     );
 }
 
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-    },
-    
+const styles = StyleSheet.create({    
     top_container:{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        height: '7%',
-        backgroundColor: 'yellow',
+        height: '10%',
     },
 
     top_button1:{
         justifyContent: 'center',
-        paddingEnd: 15,
-        paddingStart: 15,
+        paddingEnd: 20,
+        paddingStart: 20,
     },
 
     top_button2:{

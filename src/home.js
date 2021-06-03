@@ -208,10 +208,11 @@ const styles = StyleSheet.create({
     // BOTTOM CONTAINER
     bottom:{
         flexDirection:"row",
-        height: '10%',
+        height: '11%',
         justifyContent: 'space-between',
         paddingEnd: 20,
         paddingStart: 20,
+        paddingBottom: 10,
         alignItems:'center',
     },
 
