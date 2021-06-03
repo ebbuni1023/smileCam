@@ -91,16 +91,6 @@ function HomeScr({navigation}) {
             <View style={styles.button}>
                 <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
                     <FontAwesome
-                        name="friend's list"
-                        style={{
-                            fontSize: 30
-                        }}/>
-                </TouchableHighlight>
-            </View>
-
-            <View style={styles.button}>
-                <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
-                    <FontAwesome
                         name="camera"
                         style={{
                             fontSize: 30
@@ -197,9 +187,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         textAlign: 'center',
         justifyContent: 'center',
-        height: '20%',
-        backgroundColor: 'yellow',
-        position: 'absolute',
+        height: '15%',
+        marginRight: 10
     },
  
     newsText3: {
