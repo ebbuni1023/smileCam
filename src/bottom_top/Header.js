@@ -28,7 +28,7 @@ const Header = () => {
                             name="bars"
                             style={{
                                 color: 'black',
-                                fontSize: 25
+                                fontSize: 30
                             }}/>
                     </TouchableHighlight>
                 </View>
@@ -39,7 +39,7 @@ const Header = () => {
                             name="comments"
                             style={{
                                 color: 'black',
-                                fontSize: 25
+                                fontSize: 30
                             }}/>
                     </TouchableHighlight>
                 </View>
@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
 
     top_button2:{
         justifyContent: 'center',
-        paddingEnd: 15,
-        paddingStart: 15,
+        paddingEnd: 20,
+        paddingStart: 20,
     },
 });
 

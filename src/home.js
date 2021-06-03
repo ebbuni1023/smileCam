@@ -25,7 +25,8 @@ import LoginScreen from './LoginScreen';
 import GalleryPage from './gallery';
 import Setting from './setting';
 import Profile from './profile';
-import Header from './Header';
+import Header from './bottom_top/Header';
+import BottomHeader from './bottom_top/BottomHeader';
 
 
 
@@ -69,63 +70,7 @@ function HomeScr({navigation}) {
             </View>
             
             {/* BOTTOM CONTAINER */}
-
-            <View style={styles.bottom}>
-                <View style={styles.b1}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Home')}>
-                        <FontAwesome
-                            name="home"
-                            style={{
-                                color: 'black',
-                                fontSize: 30
-                            }}/>
-                    </TouchableHighlight>
-                </View>
-    
-                <View style={styles.b2}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
-                        <FontAwesome
-                            name="paw"
-                            style={{
-                                fontSize: 30,
-                                color: 'black',
-                            }}/>
-                    </TouchableHighlight>
-                </View>
-    
-                <View style={styles.b3}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
-                        <FontAwesome
-                            name="camera"
-                            style={{
-                                color: 'black',
-                                fontSize: 30
-                            }}/>
-                    </TouchableHighlight>
-                </View>
-    
-                <View style={styles.b4}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
-                        <FontAwesome
-                            name="street-view"
-                            style={{
-                                color: 'black',
-                                fontSize: 30
-                            }}/>
-                    </TouchableHighlight>
-                </View>
-    
-                <View style={styles.b5}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
-                        <FontAwesome
-                            name="user"
-                            style={{
-                                color: 'black',
-                                fontSize: 30
-                            }}/>
-                    </TouchableHighlight>
-                </View>
-            </View>
+            < BottomHeader/>
         </View>
     );
  
@@ -137,28 +82,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flex: 1,
     },
-
-    // TOP CONTAINER
-    top_container:{
-        width: '100%',
-        height: '5%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        height: '7%'
-    },
-
-    top_button1:{
-        justifyContent: 'center',
-        paddingEnd: 15,
-        paddingStart: 15,
-    },
-
-    top_button2:{
-        justifyContent: 'center',
-        paddingEnd: 15,
-        paddingStart: 15,
-    },
-
 
     // IMAGE CONTAINER
     imgconatiner: {
@@ -185,7 +108,6 @@ const styles = StyleSheet.create({
     // NEWS CONTAINER
     news:{
         flexDirection: "row",
-        backgroundColor: "red",
         alignItems: 'center',
         flex: 1,
     },
@@ -203,17 +125,6 @@ const styles = StyleSheet.create({
     newsText3: {
         flex: 1,
         alignItems: 'center',
-    },
-
-    // BOTTOM CONTAINER
-    bottom:{
-        flexDirection:"row",
-        height: '11%',
-        justifyContent: 'space-between',
-        paddingEnd: 20,
-        paddingStart: 20,
-        paddingBottom: 10,
-        alignItems:'center',
     },
 
 });
