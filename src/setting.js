@@ -24,11 +24,18 @@ import CameraPage from './camera.page';
 import LoginScreen from './LoginScreen';
 import GalleryPage from './gallery';
 import { abs } from 'react-native-reanimated';
+// import styles from './styles';
+import { NavigationEvents } from 'react-navigation';
 
-function Setting({navigation}) {
+function SettingScreen({navigation}) {
     return (
         <View style={styles.container}>
-
+            <View style={styles.loginContainer}>
+                <Button
+                title="Login"
+                onPress={() =>
+                navigation.navigate('Login')}/>
+            </View>
         </View>
     );
 
@@ -36,7 +43,9 @@ function Setting({navigation}) {
 
 const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({
-
+    loginContainer:{
+        width: '100%',
+    }
 });
 
-export default Setting;
+export default SettingScreen;
