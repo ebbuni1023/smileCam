@@ -26,6 +26,28 @@ function HomeScr({navigation}) {
     return (
         <View style={styles.container}>
             <StatusBar style="auto"/>
+
+            <View style={styles.top_button}>
+                <TouchableHighlight onPress={() => navigation.navigate('Profile')}>
+                    <FontAwesome
+                        name="setting"
+                        style={{
+                            color: 'pink',
+                            fontSize: 30
+                        }}/>
+                </TouchableHighlight>
+            </View>
+
+            <View style={styles.top_button}>
+                <TouchableHighlight onPress={() => navigation.navigate('Profile')}>
+                    <FontAwesome
+                        name="chat"
+                        style={{
+                            color: 'pink',
+                            fontSize: 30
+                        }}/>
+                </TouchableHighlight>
+            </View>
             <View style={styles.imgconatiner}>
                 <ImageBackground
                     source={require('../assets/images/smile.png')}
@@ -36,17 +58,25 @@ function HomeScr({navigation}) {
                 <Text>Hello, Welcome to our Smile App</Text>
                 <Text>Introduction</Text>
             </View>
-
-            <View style={styles.newsText1}>
-                <Text>News1</Text>
+            
+            {/* Here I want to make it two rows
+            im thinking to just erase news lol  */}
+            <View 
+                style={{
+                    flexDirection: "row", flex: 1, 
+                }}
+            >
+                <View style={styles.newsText, {flex:1}}>
+                    <Text>News1</Text>
+                </View>
+                <View style={styles.newsText, {flex:1}}>
+                    <Text>News2</Text>
+                </View>
+                <View style={styles.newsText, {flex:1}}>
+                    <Text>News3</Text>
+                </View>
             </View>
-            <View style={styles.newsText2}>
-                <Text>News2</Text>
-            </View>
-            <View style={styles.newsText3}>
-                <Text>News3</Text>
-            </View>
-
+            
             <View style={styles.button}>
                 <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
                     <FontAwesome
@@ -61,9 +91,30 @@ function HomeScr({navigation}) {
             <View style={styles.button}>
                 <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
                     <FontAwesome
+                        name="friend's list"
+                        style={{
+                            fontSize: 30
+                        }}/>
+                </TouchableHighlight>
+            </View>
+
+            <View style={styles.button}>
+                <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
+                    <FontAwesome
                         name="camera"
                         style={{
-                            fontSize: 40
+                            fontSize: 30
+                        }}/>
+                </TouchableHighlight>
+            </View>
+
+            <View style={styles.button}>
+                <TouchableHighlight onPress={() => navigation.navigate('Profile')}>
+                    <FontAwesome
+                        name="story"
+                        style={{
+                            color: 'pink',
+                            fontSize: 30
                         }}/>
                 </TouchableHighlight>
             </View>
@@ -103,6 +154,12 @@ const styles = StyleSheet.create({
         height: '60%'
     },
 
+    top_button:{
+        width: '100%',
+        position: 'relative',
+
+    },
+
     image: {
 
         width: width * 1,
@@ -117,38 +174,48 @@ const styles = StyleSheet.create({
         backgroundColor: 'pink'
     },
 
-    newsText1: {
-        width: '30%',
+    newsText:{
+        flex: 1,
         flexDirection: 'row',
         textAlign: 'center',
         justifyContent: 'center',
-        height: '15%',
-        marginRight: 10
+        height: '20%',
+        backgroundColor: 'yellow',
+        position: 'absolute',
     },
 
-    newsText2: {
-        width: '30%',
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'center',
-        height: '15%',
-        marginRight: 10
-    },
+    // newsText1: {
+    //     width: '30%',
+    //     flexDirection: 'row',
+    //     textAlign: 'center',
+    //     justifyContent: 'center',
+    //     height: '15%',
+    //     marginRight: 10,
+    //     position: 'absolute',
+    // },
 
-    newsText3: {
-        width: '30%',
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'center',
-        height: '15%'
-    },
+    // newsText2: {
+    //     width: '30%',
+    //     flexDirection: 'row',
+    //     textAlign: 'center',
+    //     justifyContent: 'center',
+    //     height: '15%',
+    //     marginRight: 10
+    // },
+
+    // newsText3: {
+    //     width: '30%',
+    //     flexDirection: 'row',
+    //     textAlign: 'center',
+    //     justifyContent: 'center',
+    //     height: '15%'
+    // },
 
     button: {
         flex: 1,
         flexDirection: 'row',
         textAlign: 'center',
         justifyContent: 'center',
-        height: '20%',
         backgroundColor: 'yellow',
         padding: 20
     }
