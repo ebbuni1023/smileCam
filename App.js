@@ -12,6 +12,8 @@ import ProfilePage from './src/profile';
 import ImagePreview from './src/image.preview';
 import LoginScreen from './src/LoginScreen';
 import LogoutScreen from './src/LogoutScreen';
+import SettingScreen from './src/setting';
+
 
 const Stack = createStackNavigator();
 
@@ -26,6 +28,8 @@ function App(){
               <Stack.Screen name ="ImagePre" component={ImagePreview}/>
               <Stack.Screen name ="Login" component={LoginScreen}/>
               <Stack.Screen name ="Logout" component={LogoutScreen}/>
+              <Stack.Screen name ="Setting" component={SettingScreen}/>
+
             </Stack.Navigator>
           </NavigationContainer>
       );

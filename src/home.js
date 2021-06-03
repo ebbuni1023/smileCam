@@ -36,9 +36,9 @@ function HomeScr({navigation}) {
             <StatusBar style="auto"/>
           <View style = {styles.top_container}>
                 <View style={styles.top_button}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Setting')}>
                         <FontAwesome
-                            name="image"
+                            name="bars"
                             style={{
                                 color: 'pink',
                                 fontSize: 20
