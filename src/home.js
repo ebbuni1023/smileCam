@@ -40,7 +40,7 @@ function HomeScr({navigation}) {
                         <FontAwesome
                             name="bars"
                             style={{
-                                color: 'pink',
+                                color: 'yellow',
                                 fontSize: 20
                             }}/>
                     </TouchableHighlight>
