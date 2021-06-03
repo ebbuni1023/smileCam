@@ -18,18 +18,14 @@ import {
     Dimensions,
     navigation
 } from 'react-native';
-
+ 
 const Stack = createStackNavigator();
 import CameraPage from './camera.page';
 import LoginScreen from './LoginScreen';
 import GalleryPage from './gallery';
+import { abs } from 'react-native-reanimated';
 import Setting from './setting';
 import Profile from './profile';
-
-
-
-import { abs } from 'react-native-reanimated';
-
 function HomeScr({navigation}) {
     return (
         <View style={styles.container}>
@@ -160,7 +156,6 @@ const styles = StyleSheet.create({
     },
  
     image: {
- 
         width: width * 1,
         height: height * 0.5
     },
@@ -207,9 +202,14 @@ const styles = StyleSheet.create({
  
     top_button:{
         width: '100%',
+      
         position: 'absolute',
-        backgroundColor: 'yellow', 
+        backgroundColor: 'yellow',
+        
         padding: 10,
+     
+        
+       
     },
  
     button: {
@@ -225,5 +225,6 @@ const styles = StyleSheet.create({
         position: 'relative'
     }
 });
-
+ 
 export default HomeScr;
+
