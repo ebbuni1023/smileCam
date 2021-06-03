@@ -17,28 +17,31 @@ import {
 const Stack = createStackNavigator();
 import LoginScreen from './LoginScreen';
 
-class GalleryPage extends React.Component {
+class Profile extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                {/* <StatusBar style="auto"/> */}
-                <View style={styles.imgconatiner}>
-                    <ImageBackground
-                        source={require('../assets/images/smile.png')}
-                        style={styles.image}/>
-                </View>
+                <View style = {styles.user_image_container}>
+                    <View style = {styles.user_image}>
 
-                <View style={styles.welcomeText}>
-                    <Text>Profile</Text>
-                    <Text>HERE WILL BE ANY PARAGRAH</Text>
-                </View>
-                <View style={styles.newsText}>
-                    <Text>Hello, Welcome to our Smile App</Text>
-                    <Text>HERE WILL BE ANY PARAGRAH</Text>
-                </View>
+                    </View>
+{/* 
+                    <View style ={styles.top_user_image}>
+                        <View style = {styles.user_name}>
 
-                <View style={styles.button1}>
-                    <Button title="click me" onPress={() => navigation.navigate('CameraPage')}/>
+                        </View>
+                        <View style = {styles.posts}>
+
+                        </View>
+                        <View style = {styles.followers}>
+
+                        </View>
+                        <View style = {styles.following}>
+
+                        </View>
+                    </View> */}
+
+
                 </View>
             </View>
         );
@@ -55,42 +58,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexWrap: 'wrap',
     },
-
-    imgconatiner: {
-        flexDirection: "column",
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        height: '60%',
-    },
-
-    image: {
-        width: width * 1,
-        height: height * 0.5
-    },
-
-    welcomeText: {
-        paddingTop: 10,
-        height: '10%',
-        width: '100%',
-        alignItems: 'center',
-        backgroundColor: 'pink',
-    },
-    newsText:{
-        paddingTop: 10,
-        height: '10%',
-        width: '100%',
-        alignItems: 'center',
-        backgroundColor: 'pink',
-        },
-
-    button1:{
-        marginTop: 50,
-        flexDirection: 'column',
-        width: '100%',
-        height: '20%',
-        backgroundColor: 'white',
-    }
 });
 
-export default GalleryPage;
+export default Profile;

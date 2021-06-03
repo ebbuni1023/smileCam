@@ -15,14 +15,15 @@ import {
 } from 'react-native';
 
 const Stack = createStackNavigator();
+import LoginScreen from './LoginScreen';
 
-class LoginScreen extends React.Component {
+class LogoutScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
                 <View style = {styles.user_image_container}>
                     <View style = {styles.user_image}>
-                        <Text>hello</Text>
+
                     </View>
 {/* 
                     <View style ={styles.top_user_image}>
@@ -59,4 +60,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoginScreen;
+export default LogoutScreen;

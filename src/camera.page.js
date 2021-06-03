@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
+import {FontAwesome5, Ionicons, MaterialCommunityIcons,MaterialIcons} from '@expo/vector-icons';
 
 import imagePreview from './image.preview';
 import styles from './styles';
@@ -49,10 +50,10 @@ export default function CameraPage({ navigation }) {
       >
       </Camera>
 
-      <View style={styles.buttonContainer, {flex:1}}>
-      <View style={{flex:1}}>
+      <View style={{flexDirection: "row", flex:1, backgroundColor:"transparent"}}>
+      <View style={{flex:1, backgroundColor:"transparent", justifyContent: "center", alignContent: "center"}}>
           <TouchableOpacity
-            style={styles.button}
+          style={{padding: 35}}
             onPress={() => {
               setType(
                 type === Camera.Constants.Type.back
@@ -60,16 +61,23 @@ export default function CameraPage({ navigation }) {
                   : Camera.Constants.Type.back
               );
             }}>
-            <Text style={styles.text}> Flip </Text>
+              <MaterialIcons name="flip" size={50} color="black" />
           </TouchableOpacity>
         </View>
-        <View style={{flex:1}}>
+        <View style={{flex:1,  justifyContent: "center", alignContent: "center"}}>
             <TouchableOpacity
-              style={styles.button}
+            style={{paddingLeft:20,}}
               onPress={_takePicture}
             >
-              <Text>Capture</Text>
+              <Ionicons name="ios-radio-button-on-outline" size={80} color="black" />
             </TouchableOpacity>
+        </View>
+        <View style={{flex:1, justifyContent: "center", alignContent: "center"}}>
+          <TouchableOpacity
+          style={{padding: 35,}}
+          >
+          <FontAwesome5 name="smile" size={50} color="black" />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
