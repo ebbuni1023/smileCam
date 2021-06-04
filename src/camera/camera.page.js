@@ -5,7 +5,7 @@ import * as MediaLibrary from 'expo-media-library';
 import {FontAwesome5, Ionicons, MaterialCommunityIcons,MaterialIcons} from '@expo/vector-icons';
 
 import imagePreview from './image.preview';
-import styles from './styles';
+import styles from '../styles';
 
 let camera= Camera;
 

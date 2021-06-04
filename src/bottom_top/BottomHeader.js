@@ -19,7 +19,7 @@ import {
     navigation
 } from 'react-native';
 const Stack = createStackNavigator();
-import Camera from '../camera.page';
+import Camera from '../camera/camera.page';
 import GalleryPage from '../gallery';
 import Setting from '../setting';
 import Profile from '../profile';

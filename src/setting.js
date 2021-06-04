@@ -20,7 +20,7 @@ import {
 } from 'react-native';
 
 const Stack = createStackNavigator();
-import CameraPage from './camera.page';
+import CameraPage from './camera/camera.page';
 import LoginScreen from './LoginScreen';
 import GalleryPage from './gallery';
 import { abs } from 'react-native-reanimated';

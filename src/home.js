@@ -20,7 +20,7 @@ import {
 } from 'react-native';
 
 const Stack = createStackNavigator();
-import CameraPage from './camera.page';
+import CameraPage from './camera/camera.page';
 import LoginScreen from './LoginScreen';
 import GalleryPage from './gallery';
 import Setting from './setting';
@@ -37,7 +37,29 @@ function HomeScr({navigation}) {
         <View style={styles.container}>
             <StatusBar style="auto"/>
             {/* TOP CONTAINER */}
-            < Header/>
+            <View style = {styles.top_container}>
+                <View style={styles.top_button1}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Setting')}>
+                        <FontAwesome
+                            name="bars"
+                            style={{
+                                color: 'black',
+                                fontSize: 30
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+ 
+                <View style={styles.top_button2}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
+                        <FontAwesome
+                            name="comments"
+                            style={{
+                                color: 'black',
+                                fontSize: 30
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+            </View> 
 
             {/* IMAGE CONTAINER */}
             <View style={styles.imgconatiner}>
@@ -98,7 +120,7 @@ function HomeScr({navigation}) {
                 </View>
     
                 <View style={styles.b3}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Camera1')}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
                         <FontAwesome
                             name="camera"
                             style={{
@@ -140,6 +162,24 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
         flex: 1,
+    },
+    // HOME CONTAINER
+    top_container:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        height: '10%',
+    },
+
+    top_button1:{
+        justifyContent: 'center',
+        paddingEnd: 20,
+        paddingStart: 20,
+    },
+
+    top_button2:{
+        justifyContent: 'center',
+        paddingEnd: 20,
+        paddingStart: 20,
     },
 
     // IMAGE CONTAINER

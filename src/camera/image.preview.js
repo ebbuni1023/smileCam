@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity , Image} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity , Image, navigation} from 'react-native';
 import { Camera } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import {AntDesign, Ionicons, MaterialCommunityIcons,MaterialIcons, Entypo} from '@expo/vector-icons';
