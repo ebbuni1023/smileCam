@@ -70,7 +70,66 @@ function HomeScr({navigation}) {
             </View>
             
             {/* BOTTOM CONTAINER */}
-            < BottomHeader/>
+            <View style={{
+            borderBottomColor: 'black',
+            borderBottomWidth: 1,
+            }}/>
+            <View style={styles.bottom}>
+                <View style={styles.b1}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Home')}>
+                        <FontAwesome
+                            name="home"
+                            style={{
+                                color: 'black',
+                                fontSize: 30
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+    
+                <View style={styles.b2}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
+                        <FontAwesome
+                            name="paw"
+                            style={{
+                                fontSize: 30,
+                                color: 'black',
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+    
+                <View style={styles.b3}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Camera1')}>
+                        <FontAwesome
+                            name="camera"
+                            style={{
+                                color: 'black',
+                                fontSize: 30
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+    
+                <View style={styles.b4}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                        <FontAwesome
+                            name="street-view"
+                            style={{
+                                color: 'black',
+                                fontSize: 30
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+    
+                <View style={styles.b5}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                        <FontAwesome
+                            name="user"
+                            style={{
+                                color: 'black',
+                                fontSize: 30
+                            }}/>
+                    </TouchableHighlight>
+                </View>
+            </View>
         </View>
     );
  
@@ -127,6 +186,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
+
+    bottom:{
+        flexDirection:"row",
+        justifyContent: 'space-between',
+        paddingEnd: 20,
+        paddingStart: 20,
+        paddingBottom: 40,
+        paddingTop: 10,
+        alignItems:'center',
+    },
 });
 
 export default HomeScr;
