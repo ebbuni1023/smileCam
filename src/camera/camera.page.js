@@ -5,7 +5,7 @@ import * as MediaLibrary from 'expo-media-library';
 import {FontAwesome5, Ionicons, MaterialCommunityIcons,MaterialIcons} from '@expo/vector-icons';
 
 import imagePreview from './image.preview';
-import styles from './styles';
+import styles from '../styles';
 
 let camera= Camera;
 
@@ -19,8 +19,8 @@ export default function CameraPage({ navigation }) {
     console.log(photo)
     const asset = await MediaLibrary.createAssetAsync(photo['uri']);
     console.log('asset', asset);
-    MediaLibrary.createAlbumAsync('Expo', asset)
-    navigation.navigate('ImagePre')
+    MediaLibrary.createAlbumAsync('SmileCam', asset)
+    navigation.navigate('ImagePre', {paramKey: photo.uri, })
   }
 
   useEffect(() => {
