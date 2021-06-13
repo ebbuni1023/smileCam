@@ -20,7 +20,7 @@ export default function CameraPage({ navigation }) {
     const asset = await MediaLibrary.createAssetAsync(photo['uri']);
     console.log('asset', asset);
     MediaLibrary.createAlbumAsync('SmileCam', asset)
-    navigation.navigate('ImagePre', {paramKey: photo.uri, })
+    navigation.navigate('Image Preview', {paramKey: photo.uri, })
   }
 
   useEffect(() => {
