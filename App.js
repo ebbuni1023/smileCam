@@ -24,6 +24,7 @@ const App = () => {
       return (
           <NavigationContainer>
             <Drawer.Navigator drawerContent={props => <DrawerContent { ...props} />}>
+             
               <Drawer.Screen name ="Home" component={HomeScr} options={{ title: 'SMILE :D'}} />
               <Drawer.Screen name ="Camera" component={CameraPage} />
               <Drawer.Screen name ="Gallery" component={GalleryPage} />

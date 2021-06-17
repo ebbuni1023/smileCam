@@ -22,7 +22,7 @@ class LoginScreen extends React.Component {
             <View style={styles.container}>
                 <View style = {styles.user_image_container}>
                     <View style = {styles.user_image}>
-                        <Text>hello</Text>
+                        <Text style={styles.textt}>hello</Text>
                     </View>
 {/* 
                     <View style ={styles.top_user_image}>
@@ -57,6 +57,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexWrap: 'wrap',
     },
+    user_image: {
+        marginTop: 50,
+        
+    },
+    textt: {
+        color: '#f44336',
+    }
 });
 
 export default LoginScreen;
