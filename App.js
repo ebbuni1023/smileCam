@@ -1,5 +1,5 @@
-import * as React from 'react';
 import 'react-native-gesture-handler';
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, createDrawerNavigator } from '@react-navigation/drawer';
 import { Base, View, Text, StyleSheet, Button ,TouchableOpacity, } from 'react-native';
@@ -23,8 +23,7 @@ const Drawer = createDrawerNavigator();
 const App = () => {
       return (
           <NavigationContainer>
-            <Drawer.Navigator drawerContent={props => <DrawerContent { ...props} />}>
-             
+            <Drawer.Navigator>
               <Drawer.Screen name ="Home" component={HomeScr} options={{ title: 'SMILE :D'}} />
               <Drawer.Screen name ="Camera" component={CameraPage} />
               <Drawer.Screen name ="Gallery" component={GalleryPage} />

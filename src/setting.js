@@ -23,7 +23,7 @@ const Stack = createStackNavigator();
 import CameraPage from './camera.page';
 import LoginScreen from './LoginScreen';
 import GalleryPage from './gallery';
-import { abs } from 'react-native-reanimated';
+// import { abs } from 'react-native-reanimated';
 // import styles from './styles';
 import { NavigationEvents } from 'react-navigation';
 

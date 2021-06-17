@@ -19,7 +19,7 @@ import {
     navigation
 } from 'react-native';
 
-const Header = () => {
+const Header = ({navigation}) => {
     return (
             <View style = {styles.top_container}>
                 <View style={styles.top_button1}>
@@ -32,7 +32,7 @@ const Header = () => {
                             }}/>
                     </TouchableHighlight>
                 </View>
- 
+
                 <View style={styles.top_button2}>
                     <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
                         <FontAwesome
@@ -43,11 +43,11 @@ const Header = () => {
                             }}/>
                     </TouchableHighlight>
                 </View>
-            </View>             
+            </View>
     );
 }
 
-const styles = StyleSheet.create({    
+const styles = StyleSheet.create({
     top_container:{
         flexDirection: 'row',
         justifyContent: 'space-between',

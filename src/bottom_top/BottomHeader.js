@@ -18,14 +18,15 @@ import {
     Dimensions,
     navigation
 } from 'react-native';
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 import Camera from '../camera.page';
 import GalleryPage from '../gallery';
 import Setting from '../setting';
 import Profile from '../profile';
 import Header from '../bottom_top/Header';
-import Home from '../home';
-const BottomHeader = () => {
+// import Home from '../home';
+
+const BottomHeader = ({navigation}) => {
     return (
         <View style ={styles.container}>
             <View style={{
@@ -44,7 +45,7 @@ const BottomHeader = () => {
                             }}/>
                     </TouchableHighlight>
                 </View>
-    
+
                 <View style={styles.b2}>
                     <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
                         <FontAwesome
@@ -55,7 +56,7 @@ const BottomHeader = () => {
                             }}/>
                     </TouchableHighlight>
                 </View>
-    
+
                 <View style={styles.b3}>
                     <TouchableHighlight onPress={() => navigation.navigate('Camera')}>
                         <FontAwesome
@@ -66,9 +67,9 @@ const BottomHeader = () => {
                             }}/>
                     </TouchableHighlight>
                 </View>
-    
+
                 <View style={styles.b4}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Gallery', { navigation: navigation })}>
                         <FontAwesome
                             name="street-view"
                             style={{
@@ -77,9 +78,9 @@ const BottomHeader = () => {
                             }}/>
                     </TouchableHighlight>
                 </View>
-    
+
                 <View style={styles.b5}>
-                    <TouchableHighlight onPress={() => navigation.navigate('Gallery')}>
+                    <TouchableHighlight onPress={() => navigation.navigate('Gallery', { navigation: navigation })}>
                         <FontAwesome
                             name="user"
                             style={{

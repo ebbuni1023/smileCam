@@ -14,7 +14,7 @@ import {
     navigation
 } from 'react-native';
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 import LoginScreen from './LoginScreen';
 
 class GalleryPage extends React.Component {
@@ -38,12 +38,39 @@ class GalleryPage extends React.Component {
                 </View>
 
                 <View style={styles.button1}>
-                    <Button title="click me" onPress={() => navigation.navigate('CameraPage')}/>
+                    <Button title="click me" onPress={() => this.props.navigation.navigate('Camera')}/>
                 </View>
             </View>
         );
     }
 }
+
+
+// const GalleryPage = ({navigation}) => {
+//     return (
+//         <View style={styles.container}>
+//             {/* <StatusBar style="auto"/> */}
+//             <View style={styles.imgconatiner}>
+//                 <ImageBackground
+//                     source={require('../assets/images/smile.png')}
+//                     style={styles.image}/>
+//             </View>
+//
+//             <View style={styles.welcomeText}>
+//                 <Text>Gallery</Text>
+//                 <Text>HERE WILL BE ANY PARAGRAH</Text>
+//             </View>
+//             <View style={styles.newsText}>
+//                 <Text>Hello, Welcome to our Smile App</Text>
+//                 <Text>HERE WILL BE ANY PARAGRAH</Text>
+//             </View>
+//
+//             <View style={styles.button1}>
+//                 <Button title="click me" onPress={() => navigation.navigate('Camera')}/>
+//             </View>
+//         </View>
+//     );
+// }
 
 const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({

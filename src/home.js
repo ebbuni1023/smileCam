@@ -19,7 +19,7 @@ import {
     navigation
 } from 'react-native';
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 import CameraPage from './camera.page';
 import LoginScreen from './LoginScreen';
 import GalleryPage from './gallery';
@@ -30,30 +30,30 @@ import BottomHeader from './bottom_top/BottomHeader';
 
 
 
-import { abs } from 'react-native-reanimated';
+// import { abs } from 'react-native-reanimated';
 
 function HomeScr({navigation}) {
     return (
         <View style={styles.container}>
             <StatusBar style="auto"/>
             {/* TOP CONTAINER */}
-            < Header/>
+            < Header navigation={navigation}/>
 
             {/* IMAGE CONTAINER */}
             <View style={styles.imgconatiner}>
                 <ImageBackground
-                    // 1. Need to change image 
-                    source={require('../assets/images/smile.png')} 
+                    // 1. Need to change image
+                    source={require('../assets/images/smile.png')}
                     style={styles.image}/>
             </View>
- 
+
             {/* TEXT CONTAINER */}
             <View style={styles.welcomeText}>
                 {/* 2. Need to change indtroduction */}
                 <Text>Hello, Welcome to our Smile App</Text>
                 <Text>Introduction</Text>
             </View>
-            
+
 
             {/* NEWS CONTAINER */}
 
@@ -68,14 +68,14 @@ function HomeScr({navigation}) {
                     <Text>News3</Text>
                 </View>
             </View>
-            
+
             {/* BOTTOM CONTAINER */}
-            < BottomHeader/>
+            < BottomHeader navigation={navigation}/>
         </View>
     );
- 
+
 }
- 
+
 const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({
     container: {
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'pink'
     },
- 
+
     // NEWS CONTAINER
     news:{
         flexDirection: "row",
@@ -116,12 +116,12 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
     },
- 
+
     newsText2: {
         flex: 1,
         alignItems: 'center',
     },
- 
+
     newsText3: {
         flex: 1,
         alignItems: 'center',
