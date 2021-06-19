@@ -1,7 +1,10 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import { useState, useEffect } from 'react';
+import auth from '@react-native-firebase/auth';
 import {
+   
     Base,
     View,
     Text,
@@ -15,33 +18,68 @@ import {
 } from 'react-native';
 
 const Stack = createStackNavigator();
-
+function LoginApp() {
+    // Set an initializing state whilst Firebase connects
+    const [initializing, setInitializing] = useState(true);
+    const [user, setUser] = useState();
+  
+    // Handle user state changes
+    function onAuthStateChanged(user) {
+      setUser(user);
+      if (initializing) setInitializing(false);
+    }
+  
+    useEffect(() => {
+      const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+      return subscriber; // unsubscribe on unmount
+    }, []);
+  
+    if (initializing) return null;
+  
+    if (!user) {
+      return (
+        <View>
+          <Text>Login</Text>
+        </View>
+      );
+    }
+  
+    return (
+      <View>
+        <Text>Welcome {user.email}</Text>
+      </View>
+    );
+  }
 class LoginScreen extends React.Component {
+    createUser = () => {
+        auth()
+  .createUserWithEmailAndPassword('bryanchau1@gmail.com', 'isthisapassword!')
+  .then(() => {
+    console.log('User account created & signed in!');
+  })
+  .catch(error => {
+    if (error.code === 'auth/email-already-in-use') {
+      console.log('That email address is already in use!');
+    }
+
+    if (error.code === 'auth/invalid-email') {
+      console.log('That email address is invalid!');
+    }
+
+    console.error(error);
+  });
+    }
+    logout = () => {
+        auth()
+  .signOut()
+  .then(() => console.log('User signed out!'));
+    } 
     render() {
         return (
-            <View style={styles.container}>
-                <View style = {styles.user_image_container}>
-                    <View style = {styles.user_image}>
-                        <Text style={styles.textt}>hello</Text>
-                    </View>
-{/* 
-                    <View style ={styles.top_user_image}>
-                        <View style = {styles.user_name}>
-
-                        </View>
-                        <View style = {styles.posts}>
-
-                        </View>
-                        <View style = {styles.followers}>
-
-                        </View>
-                        <View style = {styles.following}>
-
-                        </View>
-                    </View> */}
-
-
-                </View>
+            <View style={styles.container}> 
+            <LoginApp/>
+            <Button title="Create User" onPress={this.createUser}/>
+            <Button title="Log out" onPress={this.logout}/>
             </View>
         );
     }

@@ -24,12 +24,13 @@ const App = () => {
       return (
           <NavigationContainer>
             <Drawer.Navigator>
+              <Drawer.Screen name ="Login" component={LoginScreen}/>
               <Drawer.Screen name ="Home" component={HomeScr} options={{ title: 'SMILE :D'}} />
               <Drawer.Screen name ="Camera" component={CameraPage} />
               <Drawer.Screen name ="Gallery" component={GalleryPage} />
               <Drawer.Screen name ="Profile" component={ProfilePage}/>
               <Drawer.Screen name ="ImagePre" component={ImagePreview}/>
-              <Drawer.Screen name ="Login" component={LoginScreen}/>
+               
               <Drawer.Screen name ="Logout" component={LogoutScreen}/>
               <Drawer.Screen name ="Setting" component={SettingScreen}/>
             </Drawer.Navigator>
