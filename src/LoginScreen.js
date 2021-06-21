@@ -1,107 +1,110 @@
-import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import { useState, useEffect } from 'react';
-import auth from '@react-native-firebase/auth';
-import {
-   
-    Base,
-    View,
-    Text,
-    StyleSheet,
-    Button,
-    TouchableOpacity,
-    StatusBar,
-    ImageBackground,
-    Dimensions,
-    navigation
-} from 'react-native';
+import React from 'react';
 
-const Stack = createStackNavigator();
-function LoginApp() {
-    // Set an initializing state whilst Firebase connects
-    const [initializing, setInitializing] = useState(true);
-    const [user, setUser] = useState();
-  
-    // Handle user state changes
-    function onAuthStateChanged(user) {
-      setUser(user);
-      if (initializing) setInitializing(false);
-    }
-  
-    useEffect(() => {
-      const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-      return subscriber; // unsubscribe on unmount
-    }, []);
-  
-    if (initializing) return null;
-  
-    if (!user) {
-      return (
-        <View>
-          <Text>Login</Text>
-        </View>
-      );
-    }
-  
-    return (
-      <View>
-        <Text>Welcome {user.email}</Text>
-      </View>
-    );
-  }
+import * as firebase from 'firebase';
+//import firebase from 'firebase/app';
+import { View,Text, StyleSheet, } from 'react-native';
+
+import {Container, Content, Header, Form, Input, Button,Item, Label} from 'native-base';
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB28_2AxuPqCGPhWPGU5aMCYdjuqIB1KWw",
+  authDomain: "smilecam-e2f68.firebaseapp.com",
+  projectId: "smilecam-e2f68",
+  storageBucket: "smilecam-e2f68.appspot.com",
+  messagingSenderId: "137804997093",
+  appId: "1:137804997093:web:6d9007e5087d8765610f0c"
+};
+// Initialize Firebase
+if (!firebase.apps.length) {
+firebase.initializeApp(firebaseConfig); 
+}
+
 class LoginScreen extends React.Component {
-    createUser = () => {
-        auth()
-  .createUserWithEmailAndPassword('bryanchau1@gmail.com', 'isthisapassword!')
-  .then(() => {
-    console.log('User account created & signed in!');
-  })
-  .catch(error => {
-    if (error.code === 'auth/email-already-in-use') {
-      console.log('That email address is already in use!');
-    }
+    constructor(props){
+      super(props)
 
-    if (error.code === 'auth/invalid-email') {
-      console.log('That email address is invalid!');
+      this.state = ({
+        email: '',
+        password: ''
+      })
     }
-
-    console.error(error);
-  });
+    signUpUser = (email, password) => {
+      try {
+          if (this.state.password.length < 6) {
+            alert("Please enter atleast 6 characters")
+            return;
+          }
+          firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+      }
+      catch(error){
+        console.log(error.toString())
+      }
     }
-    logout = () => {
-        auth()
-  .signOut()
-  .then(() => console.log('User signed out!'));
-    } 
+    loginUser = (email, password) => {
+        try {
+            firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then(function (user){
+                console.log(user)
+            })
+        }
+        catch(error){
+          console.log(error.toString())
+        }
+    }
     render() {
         return (
-            <View style={styles.container}> 
-            <LoginApp/>
-            <Button title="Create User" onPress={this.createUser}/>
-            <Button title="Log out" onPress={this.logout}/>
-            </View>
+            <Container style={styles.container}>
+              <Form>
+                <Item floatingLabel>
+                  <Label>
+                    Email 
+                  </Label>
+                  <Input
+                     autoCorrect={false}
+                     autoCapitalize="none" 
+                     onChangeText = {(email) =>this.setState({email})}
+                      />
+                 
+                </Item>
+
+                <Item floatingLabel>
+                  <Label>
+                    Password
+                  </Label>
+                  <Input
+                    secureTextEntry={true}
+                     autoCorrect={false}
+                     autoCapitalize="none" 
+                     onChangeText = {(password) =>this.setState({password})}
+                      />
+                 
+                </Item>
+                <Button style={styles.loginButton} full rounded success onPress={()=>this.loginUser(this.state.email, this.state.password)} >
+                  <Text style={{color: 'white'}}>Login</Text>
+                </Button>
+                <Button style={styles.loginButton} full primary rounded onPress={()=> this.signUpUser(this.state.emai, this.state.password)}>
+                  <Text style={{color: 'white'}}>Sign Up</Text>
+                </Button>
+              </Form>
+            </Container>
         );
     }
 }
 
-const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({
     container: {
-        width: '100%',
-        height: '100%',
-        flexDirection: "row",
-        backgroundColor: 'white',
+        flex: 1,
+        backgroundColor: '#fff',
         justifyContent: 'center',
-        flexWrap: 'wrap',
-    },
-    user_image: {
-        marginTop: 50,
         
+      
     },
-    textt: {
-        color: '#f44336',
+    loginButton: {
+      marginTop: 30,
+      alignSelf: 'center',
+      width: '100%'
     }
+    
 });
 
 export default LoginScreen;
